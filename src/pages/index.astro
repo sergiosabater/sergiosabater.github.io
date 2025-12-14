@@ -55,6 +55,29 @@ import FlutterIcon from "../assets/icons/flutter.svg";
         font-weight: bold;
         color: #60a5fa; /* blue-400 */
       }
+      @keyframes fadeInBanner {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .fade-out-banner {
+        animation: fadeOutBanner 0.5s ease-out forwards;
+      }
+      @keyframes fadeOutBanner {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+      .fade-in-banner {
+        opacity: 0;
+        animation: fadeInBanner 1s ease-out 0.5s forwards;
+      }
     </style>
   </head>
   <body class="bg-gray-900 text-white min-h-screen">
@@ -286,7 +309,6 @@ import FlutterIcon from "../assets/icons/flutter.svg";
           Un viaje de crecimiento desde Android nativo hasta soluciones
           freelance multiplataforma.
         </p>
-
         <div class="border-l-4 border-blue-500 pl-8 space-y-12">
           <div class="timeline-item">
             <span
@@ -302,7 +324,6 @@ import FlutterIcon from "../assets/icons/flutter.svg";
               para mercados locales y aprendiendo mejores prácticas en UI/UX.
             </p>
           </div>
-
           <div class="timeline-item">
             <span
               class="inline-block bg-blue-500 text-white px-3 py-1 rounded-full font-bold text-sm mb-2"
@@ -318,7 +339,6 @@ import FlutterIcon from "../assets/icons/flutter.svg";
               performance.
             </p>
           </div>
-
           <div class="timeline-item">
             <span
               class="inline-block bg-blue-500 text-white px-3 py-1 rounded-full font-bold text-sm mb-2"
@@ -483,12 +503,12 @@ import FlutterIcon from "../assets/icons/flutter.svg";
     </footer>
     <div
       id="banner-aviso"
-      class="fixed bottom-4 left-0 right-0 flex justify-center z-50 px-4"
+      class="fixed bottom-4 left-0 right-0 flex justify-center z-50 px-4 fade-in-banner"
     >
       <div
-        class="bg-gray-800 text-white px-6 py-4 rounded-xl shadow-lg flex items-center space-x-4 animate__animated animate__fadeInUp max-w-max"
+        class="bg-gray-800 text-white px-6 py-4 rounded-xl shadow-lg flex items-center space-x-4 max-w-max border border-white"
       >
-        <span>⚠️ Esta página todavía está en construcción.</span>
+        <span>⚠️ Esta página está todavía en construcción.</span>
         <button
           id="cerrar-banner"
           class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition whitespace-nowrap"
@@ -505,12 +525,11 @@ import FlutterIcon from "../assets/icons/flutter.svg";
         const botonCerrar = document.getElementById("cerrar-banner");
         if (banner && botonCerrar) {
           botonCerrar.addEventListener("click", () => {
-            banner.style.transform = "translateX(-50%) translateY(100px)";
-            banner.style.opacity = "0";
+            banner.classList.remove("fade-in-banner");
+            banner.classList.add("fade-out-banner");
             setTimeout(() => banner.remove(), 500);
           });
         }
-
         // Animaciones on scroll
         const observer = new IntersectionObserver(
           (entries) => {
@@ -526,7 +545,6 @@ import FlutterIcon from "../assets/icons/flutter.svg";
           },
           { threshold: 0.1 }
         );
-
         // Función para animar counters
         /**
          * @param {HTMLElement} counterElement - El elemento del contador
@@ -539,10 +557,8 @@ import FlutterIcon from "../assets/icons/flutter.svg";
           // Extraer el sufijo original (%, +, etc.)
           const originalText = counterElement.innerText;
           const suffix = originalText.replace(/^\d+/, "");
-
           let currentCount = 0;
           const increment = target / 200; // Velocidad
-
           const updateCounter = () => {
             currentCount += increment;
             if (currentCount < target) {
@@ -552,10 +568,8 @@ import FlutterIcon from "../assets/icons/flutter.svg";
               counterElement.innerText = target + suffix;
             }
           };
-
           updateCounter();
         }
-
         // Observar elementos
         document
           .querySelectorAll(".skill-img, .timeline-item, .stat-counter")
