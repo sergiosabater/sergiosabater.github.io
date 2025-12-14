@@ -24,6 +24,7 @@ import FlutterIcon from "../assets/icons/flutter.svg";
         scroll-behavior: smooth;
       }
       body {
+        padding-top: 4rem;
       }
       .hero-section {
         padding-top: 0;
@@ -53,7 +54,7 @@ import FlutterIcon from "../assets/icons/flutter.svg";
       .stat-counter {
         font-size: 4rem;
         font-weight: bold;
-        color: #60a5fa; /* blue-400 */
+        color: #60a5fa;
       }
       @keyframes fadeInBanner {
         from {
@@ -77,6 +78,19 @@ import FlutterIcon from "../assets/icons/flutter.svg";
       .fade-in-banner {
         opacity: 0;
         animation: fadeInBanner 1s ease-out 0.5s forwards;
+      }
+      /* Animación personalizada para el bloque "Sobre mí" */
+      .sobre-mi-box {
+        opacity: 0;
+        transform: translateX(-100px);
+        transition: 
+          opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+        transition-delay: 0.3s;
+      }
+      .sobre-mi-box.slide-in-left {
+        opacity: 1;
+        transform: translateX(0);
       }
     </style>
   </head>
@@ -122,11 +136,12 @@ import FlutterIcon from "../assets/icons/flutter.svg";
         </div>
       </div>
     </header>
+
     <!-- SOBRE MÍ -->
     <section id="sobre-mi" class="py-20 px-4 bg-gray-900">
       <div class="container mx-auto max-w-4xl">
         <h2
-          class="text-5xl font-extrabold mb-10 text-center text-blue-400 animate__animated animate__fadeInUp"
+          class="text-5xl font-extrabold mb-10 text-center text-blue-400 animate__animated animate__slideInLeft"
         >
           Sobre Mí
         </h2>
@@ -203,7 +218,7 @@ import FlutterIcon from "../assets/icons/flutter.svg";
             >.
           </p>
           <div
-            class="bg-gray-800 border-l-4 border-blue-500 p-5 rounded-r-lg my-4"
+            class="bg-gray-800 border-l-4 border-blue-500 p-5 rounded-r-lg my-4 sobre-mi-box"
           >
             <p class="text-white font-semibold text-xl mb-2">
               ¿Necesitas una app profesional?
@@ -233,7 +248,8 @@ import FlutterIcon from "../assets/icons/flutter.svg";
         </div>
       </div>
     </section>
-    <!-- HABILIDADES TÉCNICAS (Nueva Sección 1) -->
+
+    <!-- HABILIDADES TÉCNICAS -->
     <section id="habilidades" class="py-20 px-4 bg-gray-800">
       <div class="container mx-auto max-w-6xl">
         <h2
@@ -297,7 +313,8 @@ import FlutterIcon from "../assets/icons/flutter.svg";
         </div>
       </div>
     </section>
-    <!-- EXPERIENCIA PROFESIONAL (Nueva Sección 2) -->
+
+    <!-- EXPERIENCIA PROFESIONAL -->
     <section id="experiencia" class="py-20 px-4 bg-gray-900">
       <div class="container mx-auto max-w-5xl">
         <h2
@@ -356,7 +373,8 @@ import FlutterIcon from "../assets/icons/flutter.svg";
         </div>
       </div>
     </section>
-    <!-- LOGROS DESTACADOS (Nueva Sección 3) -->
+
+    <!-- LOGROS DESTACADOS -->
     <section id="logros" class="py-20 px-4 bg-gray-800">
       <div class="container mx-auto max-w-6xl">
         <h2
@@ -406,6 +424,7 @@ import FlutterIcon from "../assets/icons/flutter.svg";
         </div>
       </div>
     </section>
+
     <!-- PROYECTOS -->
     <section id="proyectos" class="py-20 px-4 bg-gray-800">
       <div class="container mx-auto max-w-7xl">
@@ -475,6 +494,7 @@ import FlutterIcon from "../assets/icons/flutter.svg";
         </div>
       </div>
     </section>
+
     <!-- CONTACTO -->
     <section id="contacto" class="py-20 px-4 bg-gray-900 text-center">
       <h2
@@ -493,6 +513,7 @@ import FlutterIcon from "../assets/icons/flutter.svg";
         Contáctame
       </a>
     </section>
+
     <!-- FOOTER -->
     <footer
       class="bg-gray-950 text-gray-400 py-6 text-center border-t border-gray-700"
@@ -501,6 +522,7 @@ import FlutterIcon from "../assets/icons/flutter.svg";
         <p class="text-sm">&copy; {new Date().getFullYear()} Sergio Sabater.</p>
       </div>
     </footer>
+
     <div
       id="banner-aviso"
       class="fixed bottom-4 left-0 right-0 flex justify-center z-50 px-4 fade-in-banner"
@@ -517,6 +539,7 @@ import FlutterIcon from "../assets/icons/flutter.svg";
         </button>
       </div>
     </div>
+
     <!-- SCRIPT -->
     <script>
       // @ts-nocheck
@@ -536,6 +559,9 @@ import FlutterIcon from "../assets/icons/flutter.svg";
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 entry.target.classList.add("visible");
+                if (entry.target.classList.contains("sobre-mi-box")) {
+                  entry.target.classList.add("slide-in-left");
+                }
                 if (entry.target.classList.contains("stat-counter")) {
                   animateCounter(entry.target);
                 }
@@ -572,7 +598,7 @@ import FlutterIcon from "../assets/icons/flutter.svg";
         }
         // Observar elementos
         document
-          .querySelectorAll(".skill-img, .timeline-item, .stat-counter")
+          .querySelectorAll(".skill-img, .timeline-item, .stat-counter, .sobre-mi-box")
           .forEach((el) => observer.observe(el));
       });
     </script>
