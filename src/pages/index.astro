@@ -19,12 +19,7 @@ import flutterIcon from "../assets/icons/flutter.svg";
       html {
         scroll-behavior: smooth;
       }
-      body {
-        padding-top: 4rem;
-      }
-      .hero-section {
-        padding-top: 0;
-      }
+
       .skill-img {
         opacity: 0;
         transform: translateY(50px);
@@ -36,6 +31,7 @@ import flutterIcon from "../assets/icons/flutter.svg";
         opacity: 1;
         transform: translateY(0);
       }
+
       .timeline-item {
         opacity: 0;
         transform: translateX(-50px);
@@ -47,11 +43,13 @@ import flutterIcon from "../assets/icons/flutter.svg";
         opacity: 1;
         transform: translateX(0);
       }
+
       .stat-counter {
         font-size: 4rem;
         font-weight: bold;
         color: #60a5fa;
       }
+
       @keyframes fadeInBanner {
         from {
           opacity: 0;
@@ -60,9 +58,11 @@ import flutterIcon from "../assets/icons/flutter.svg";
           opacity: 1;
         }
       }
+
       .fade-out-banner {
         animation: fadeOutBanner 0.5s ease-out forwards;
       }
+
       @keyframes fadeOutBanner {
         from {
           opacity: 1;
@@ -71,10 +71,12 @@ import flutterIcon from "../assets/icons/flutter.svg";
           opacity: 0;
         }
       }
+
       .fade-in-banner {
         opacity: 0;
         animation: fadeInBanner 1s ease-out 0.5s forwards;
       }
+
       /* Animación personalizada para el bloque "Sobre mí" */
       .sobre-mi-box {
         opacity: 0;
