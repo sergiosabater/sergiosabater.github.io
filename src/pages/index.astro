@@ -96,9 +96,9 @@ import flutterIcon from "../assets/icons/flutter.svg";
     <!-- HEADER -->
     <header
       id="inicio"
-      class="hero-section bg-black text-white py-32 text-center animate__animated animate__fadeIn"
+      class="hero-section bg-black text-white py-16 text-center animate__animated animate__fadeIn"
     >
-      <div class="container mx-auto px-6 pt-16">
+      <div class="container mx-auto px-6 pt-8">
         <h1
           class="text-6xl font-black leading-tight animate__animated animate__fadeInUp"
         >
@@ -605,7 +605,7 @@ import flutterIcon from "../assets/icons/flutter.svg";
               }
             });
           },
-          { threshold: 0.1 },
+          { threshold: 0.1 }
         );
         // Función para animar counters
         /**
@@ -614,7 +614,7 @@ import flutterIcon from "../assets/icons/flutter.svg";
         function animateCounter(counterElement) {
           const target = parseInt(
             counterElement.getAttribute("data-target"),
-            10,
+            10
           );
           // Extraer el sufijo original (%, +, etc.)
           const originalText = counterElement.innerText;
@@ -635,7 +635,7 @@ import flutterIcon from "../assets/icons/flutter.svg";
         // Observar elementos
         document
           .querySelectorAll(
-            ".skill-img, .timeline-item, .stat-counter, .sobre-mi-box",
+            ".skill-img, .timeline-item, .stat-counter, .sobre-mi-box"
           )
           .forEach((el) => observer.observe(el));
       });
