@@ -62,15 +62,21 @@ Specialized in creating **high-performance MVPs** with Flutter & Dart, deliverin
 
 ## 🎯 Core Competencies
 
-```dart
-final skills = {
-  'mobile': ['Flutter', 'Dart', 'Android', 'Kotlin', 'iOS'],
-  'architecture': ['BLoC', 'Provider', 'GetX', 'Clean Architecture'],
-  'testing': ['Unit Testing', 'Integration Testing', 'UI Testing'],
-  'tools': ['Git', 'Firebase', 'REST APIs', 'CI/CD'],
-  'methodology': ['Agile', 'Scrum', 'TDD']
-};
-```
+### 📱 Mobile Development
+- Flutter | Dart | Android | Kotlin | iOS
+
+### 🏗️ Architecture Patterns
+- BLoC | Provider | GetX | Clean Architecture
+
+### 🧪 Testing
+- Unit Testing | Integration Testing | UI Testing
+
+### 🛠️ Tools & Technologies
+- Git | Firebase | REST APIs | CI/CD
+
+### 📋 Methodology
+- Agile | Scrum | TDD
+
 
 ---
 
