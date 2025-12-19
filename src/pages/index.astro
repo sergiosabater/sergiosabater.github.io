@@ -290,7 +290,6 @@ import flutterIcon from "../assets/icons/flutter.svg";
               Creación de MVPs multiplataforma con UI nativa y rendimiento
               óptimo.
             </p>
-            <div class="stat-counter" data-target="95">0%</div>
           </div>
 
           <!-- Habilidad Testing -->
@@ -310,7 +309,6 @@ import flutterIcon from "../assets/icons/flutter.svg";
             <p class="text-gray-300 mb-4">
               Pruebas unitarias, integración y UI para apps libres de errores.
             </p>
-            <div class="stat-counter" data-target="90">0%</div>
           </div>
 
           <!-- Habilidad Arquitectura -->
@@ -332,7 +330,6 @@ import flutterIcon from "../assets/icons/flutter.svg";
             <p class="text-gray-300 mb-4">
               BLoC, Provider, GetX para código escalable y mantenible.
             </p>
-            <div class="stat-counter" data-target="92">0%</div>
           </div>
         </div>
       </div>
@@ -605,7 +602,7 @@ import flutterIcon from "../assets/icons/flutter.svg";
               }
             });
           },
-          { threshold: 0.1 }
+          { threshold: 0.1 },
         );
         // Función para animar counters
         /**
@@ -614,7 +611,7 @@ import flutterIcon from "../assets/icons/flutter.svg";
         function animateCounter(counterElement) {
           const target = parseInt(
             counterElement.getAttribute("data-target"),
-            10
+            10,
           );
           // Extraer el sufijo original (%, +, etc.)
           const originalText = counterElement.innerText;
@@ -635,7 +632,7 @@ import flutterIcon from "../assets/icons/flutter.svg";
         // Observar elementos
         document
           .querySelectorAll(
-            ".skill-img, .timeline-item, .stat-counter, .sobre-mi-box"
+            ".skill-img, .timeline-item, .stat-counter, .sobre-mi-box",
           )
           .forEach((el) => observer.observe(el));
       });
